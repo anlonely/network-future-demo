@@ -60,6 +60,111 @@ body {
   animation: groundGlow 10s ease-in-out infinite alternate;
 }
 
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 35;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 1rem;
+  background: rgba(5, 5, 5, 0.52);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+}
+
+.mobile-nav-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav-panel {
+  width: min(24rem, 100%);
+  margin-top: 4.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(180deg, rgba(19, 19, 19, 0.96), rgba(9, 9, 9, 0.98)) padding-box,
+    linear-gradient(135deg, rgba(167, 240, 105, 0.24), rgba(255, 255, 255, 0.08)) border-box;
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(167, 240, 105, 0.05);
+  overflow: hidden;
+  transform: translateY(-8px) scale(0.98);
+  transform-origin: top right;
+  transition: transform 0.28s ease;
+}
+
+.mobile-nav-overlay.is-open .mobile-nav-panel {
+  transform: translateY(0) scale(1);
+}
+
+.mobile-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem 0.75rem;
+}
+
+.mobile-nav-kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.mobile-nav-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: white;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0 0.75rem 0.75rem;
+}
+
+.mobile-nav-link,
+.mobile-nav-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 0.95rem 1rem;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.03);
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.mobile-nav-contact {
+  margin: 0 0.75rem 0.9rem;
+  background: rgba(167, 240, 105, 0.1);
+  border-color: rgba(167, 240, 105, 0.26);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-contact:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(167, 240, 105, 0.22);
+}
+
 .neon-fx-container {
   position: absolute;
   top: 0;
@@ -186,6 +291,7 @@ body {
 .hero-copy {
   position: relative;
   transform: translateY(90px);
+  width: 100%;
 }
 
 .intro-screen {
@@ -557,30 +663,47 @@ body {
   }
 
   .hero-shell {
-    transform: translateY(-130px);
-    margin-bottom: calc(3rem - 130px);
-    min-height: calc(100vh - 110px);
+    transform: translateY(-108px);
+    margin-bottom: calc(2.5rem - 108px);
+    min-height: calc(100svh - 112px);
   }
 
   .hero-copy {
-    transform: translateY(72px);
+    transform: translateY(58px);
   }
 }
 
 @media (max-width: 640px) {
   .neon-fx-container {
-    transform: translate(-50%, calc(-12vh - 128px));
-    mask-image: radial-gradient(ellipse at center, black 28%, transparent 78%);
-    -webkit-mask-image: radial-gradient(ellipse at center, black 28%, transparent 78%);
+    transform: translate(-50%, calc(-9vh - 104px));
+    mask-image: radial-gradient(ellipse at center, black 32%, transparent 82%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 32%, transparent 82%);
   }
 
   .hero-shell {
-    transform: translateY(-96px);
-    margin-bottom: calc(2.5rem - 96px);
+    transform: translateY(-66px);
+    margin-bottom: calc(2rem - 66px);
+    min-height: auto;
+    padding-top: 1.5rem;
   }
 
   .hero-copy {
-    transform: translateY(58px);
+    transform: translateY(28px);
+    max-width: 100%;
+  }
+
+  .site-shell::after {
+    bottom: -7rem;
+    height: 20rem;
+    width: 126vw;
+  }
+
+  .intro-screen__line--top {
+    top: calc(50% - 34px);
+  }
+
+  .intro-screen__line--bottom {
+    top: calc(50% + 34px);
   }
 
   .intro-screen__label {
@@ -589,7 +712,22 @@ body {
   }
 
   .glow-card {
-    min-height: 16rem;
+    min-height: 15rem;
+  }
+
+  .mobile-nav-panel {
+    width: 100%;
+    margin-top: 4.25rem;
+  }
+
+  .mobile-nav-link,
+  .mobile-nav-contact {
+    padding: 0.9rem 0.95rem;
+  }
+
+  .site-footer {
+    margin-top: 2rem;
+    padding-bottom: 2.5rem;
   }
 }
 
@@ -612,4 +750,3 @@ body {
     transform: none;
   }
 }
-

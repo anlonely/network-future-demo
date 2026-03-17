@@ -4,10 +4,12 @@ import {
   Github,
   Headset,
   Layers,
+  Menu,
   Network,
   Server,
   ShieldCheck,
   Wind,
+  X,
 } from 'lucide-react';
 import { useEffect, useState, type CSSProperties } from 'react';
 import { Card } from './components/Card';
@@ -61,6 +63,7 @@ const navLinks = [
 export default function App() {
   const [isReady, setIsReady] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -82,6 +85,13 @@ export default function App() {
       window.clearTimeout(introTimer);
     };
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <div
@@ -111,12 +121,12 @@ export default function App() {
         <div className="neon-fx-diffusion" style={{ animationDelay: '2.6s' } as CSSProperties} />
       </div>
 
-      <nav className="intro-rise intro-delay-1 relative z-20 flex w-full items-center justify-between px-5 py-5 sm:px-8 lg:px-12">
+      <nav className="intro-rise intro-delay-1 relative z-20 flex w-full items-center justify-between gap-4 px-5 py-5 sm:px-8 lg:px-12">
         <div className="flex items-center gap-3 font-bold tracking-tighter">
           <div className="flex h-8 w-8 items-center justify-center rounded-full border border-[#a7f069]/30 bg-[#a7f069]/10 text-[#a7f069] backdrop-blur-sm">
             <Wind className="h-4 w-4" />
           </div>
-          <span className="text-[0.68rem] uppercase tracking-[0.28em] text-white/76 sm:text-[0.72rem] sm:tracking-[0.34em]">
+          <span className="text-[0.62rem] uppercase tracking-[0.22em] text-white/76 sm:text-[0.72rem] sm:tracking-[0.34em]">
             DEMO | NETWORK &amp; FUTURE
           </span>
         </div>
@@ -137,21 +147,73 @@ export default function App() {
           href="https://github.com/octocat"
           target="_blank"
           rel="noreferrer"
-          className="rounded-full border border-white/10 px-5 py-2 text-sm font-medium transition-colors hover:bg-white/5"
+          className="hidden rounded-full border border-white/10 px-5 py-2 text-sm font-medium transition-colors hover:bg-white/5 md:inline-flex"
         >
           Contact
         </a>
+        <button
+          type="button"
+          aria-expanded={isMobileMenuOpen}
+          aria-label={isMobileMenuOpen ? 'Close navigation' : 'Open navigation'}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-colors hover:bg-white/10 md:hidden"
+          onClick={() => setIsMobileMenuOpen((open) => !open)}
+        >
+          {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
       </nav>
+
+      <div
+        className={`mobile-nav-overlay ${isMobileMenuOpen ? 'is-open' : ''}`}
+        aria-hidden={isMobileMenuOpen ? 'false' : 'true'}
+      >
+        <div className="mobile-nav-panel">
+          <div className="mobile-nav-header">
+            <span className="mobile-nav-kicker">Navigation</span>
+            <button
+              type="button"
+              className="mobile-nav-close"
+              aria-label="Close navigation"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+          <div className="mobile-nav-links">
+            {navLinks.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                className="mobile-nav-link"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span>{item.label}</span>
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            ))}
+          </div>
+          <a
+            href="https://github.com/octocat"
+            target="_blank"
+            rel="noreferrer"
+            className="mobile-nav-contact"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Contact
+          </a>
+        </div>
+      </div>
 
       <main className="relative z-10 w-full px-5 pb-24 pt-0 sm:px-8 lg:px-12 lg:pb-28">
         <header className="hero-shell mb-14 mt-0 flex min-h-[calc(100vh-148px)] flex-col items-center justify-center pt-[clamp(0.25rem,1vh,1rem)] text-center sm:mb-18 sm:pt-[clamp(0.5rem,2vh,1.25rem)] lg:mb-22 lg:pt-[clamp(0.75rem,2vh,1.5rem)]">
           <div className="hero-copy flex max-w-[980px] flex-col items-center justify-center">
-            <h1 className="intro-rise intro-delay-2 max-w-4xl text-5xl font-bold leading-[0.95] tracking-tighter text-white sm:text-6xl md:text-7xl lg:text-[5.25rem]">
+            <h1 className="intro-rise intro-delay-2 max-w-4xl text-[2.65rem] font-bold leading-[0.95] tracking-tighter text-white sm:text-6xl md:text-7xl lg:text-[5.25rem]">
               Network Architect <br />
               <span className="text-white/40">&amp; AI Systems</span>
             </h1>
 
-            <p className="intro-rise intro-delay-3 mt-5 max-w-3xl text-base font-semibold leading-relaxed text-white/72 sm:text-lg md:text-xl">
+            <p className="intro-rise intro-delay-3 mt-5 max-w-3xl px-1 text-[0.98rem] font-semibold leading-relaxed text-white/72 sm:text-lg md:text-xl">
               Hi, I&apos;m Alex. This public demo showcases a full-screen portfolio built with sanitized content,
               GitHub-based placeholder links, and non-sensitive example narratives for infrastructure and AI projects.
             </p>
@@ -189,4 +251,3 @@ export default function App() {
     </div>
   );
 }
-
