@@ -657,45 +657,69 @@ body {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
+  .site-shell::before {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 18%);
+  }
+
+  .hero-shell::after {
+    bottom: 21vh;
+    width: min(26rem, 78vw);
+  }
+
+  .site-shell::after {
+    width: min(72rem, 144vw);
+    height: 24rem;
+    bottom: -8rem;
+    opacity: 0.7;
+  }
+
   .neon-fx-container {
-    transform: translate(-50%, calc(-16vh - 160px));
+    transform: translate(-50%, calc(-11vh - 148px));
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 82%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 82%);
   }
 
   .hero-shell {
-    transform: translateY(-108px);
-    margin-bottom: calc(2.5rem - 108px);
+    transform: translateY(-92px);
+    margin-bottom: calc(2.75rem - 92px);
     min-height: calc(100svh - 112px);
   }
 
   .hero-copy {
-    transform: translateY(58px);
+    transform: translateY(52px);
   }
 }
 
 @media (max-width: 640px) {
-  .neon-fx-container {
-    transform: translate(-50%, calc(-9vh - 104px));
-    mask-image: radial-gradient(ellipse at center, black 32%, transparent 82%);
-    -webkit-mask-image: radial-gradient(ellipse at center, black 32%, transparent 82%);
-  }
-
   .hero-shell {
-    transform: translateY(-66px);
-    margin-bottom: calc(2rem - 66px);
+    transform: translateY(-58px);
+    margin-bottom: calc(1.75rem - 58px);
     min-height: auto;
     padding-top: 1.5rem;
   }
 
-  .hero-copy {
-    transform: translateY(28px);
-    max-width: 100%;
+  .hero-shell::after {
+    bottom: 15vh;
+    height: 7rem;
   }
 
   .site-shell::after {
-    bottom: -7rem;
+    width: 132vw;
     height: 20rem;
-    width: 126vw;
+    bottom: -7rem;
+    filter: blur(26px);
+  }
+
+  .neon-fx-container {
+    transform: translate(-50%, calc(-7vh - 92px));
+    mask-image: radial-gradient(ellipse at center, black 34%, transparent 84%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 34%, transparent 84%);
+  }
+
+  .hero-copy {
+    transform: translateY(20px);
+    max-width: 100%;
   }
 
   .intro-screen__line--top {
@@ -709,6 +733,10 @@ body {
   .intro-screen__label {
     letter-spacing: 0.28em;
     text-align: center;
+  }
+
+  .glow-card:hover {
+    transform: none;
   }
 
   .glow-card {
