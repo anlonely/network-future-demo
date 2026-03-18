@@ -1,139 +1,134 @@
+<div align="center">
+
 # Network Future Demo
 
-一个现代化的网络架构与 AI 系统作品集演示项目，展示了基础设施运维、自动化和 AI 赋能的未来方向。
+**网络架构与 AI 系统作品集演示项目**
 
-![Demo Portfolio](https://img.shields.io/badge/demo-portfolio-050505?style=for-the-badge&logo=react)
-![React](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1-38BDF8?style=for-the-badge&logo=tailwind-css)
+一个基于 React + Vite 的展示型前端，用于呈现网络基础设施、自动化运维与 AI 场景的公开作品集。
 
-## ✨ 项目特性
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38BDF8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 
-- 🎨 **现代化 UI 设计** - 深色主题配合霓虹光效，视觉体验流畅
-- 🚀 **高性能技术栈** - React 19 + Vite 6 + TypeScript
-- 💨 **极速开发体验** - HMR 热更新，秒级启动
-- 📱 **响应式布局** - 完美适配桌面和移动设备
-- ♿ **无障碍优化** - 支持减少动画设置，照顾不同用户需求
-- 🌐 **演示驱动** - 展示 6 个核心领域的实战案例
-
-## 📦 技术栈
-
-| 类别 | 技术 | 版本 |
-|------|------|------|
-| 框架 | [React](https://react.dev/) | 19.0 |
-| 语言 | [TypeScript](https://www.typescriptlang.org/) | 5.8 |
-| 构建工具 | [Vite](https://vitejs.dev/) | 6.2 |
-| 样式 | [Tailwind CSS](https://tailwindcss.com/) | 4.1 |
-| 图标 | [Lucide React](https://lucide.dev/) | 0.546 |
-
-## 🎯 展示内容
-
-项目展示了以下 6 个核心领域的技术案例：
-
-| 项目 | 说明 |
-|------|------|
-| **Open Network Architecture** | 多区域网络设计、弹性路由和可观测性演示 |
-| **Virtualization Patterns** | 集群迁移、VDI 体验调优和基础设施基线 |
-| **Zero-Trust Foundations** | 身份感知访问、设备信任和生命周期自动化 |
-| **Monitoring & AIOps** | 告警流水线、可观测性仪表板和 AI 辅助事件分析 |
-| **Infrastructure Automation** | 环境供应、声明式交付和可复用平台工作流 |
-| **Service Operations** | 工单减少、运行手册质量和平台支持 |
-
-## 🚀 快速开始
-
-### 前置要求
-
-- Node.js >= 18.0.0
-- npm >= 9.0.0
-
-### 安装依赖
-
-```bash
-# 克隆仓库
-git clone https://github.com/anlonely/network-future-demo.git
-cd network-future-demo
-
-# 安装依赖
-npm install
-```
-
-### 启动开发服务器
-
-```bash
-npm run dev
-```
-
-访问 http://localhost:3000 查看演示。
-
-### 构建生产版本
-
-```bash
-npm run build
-```
-
-构建产物位于 `dist/` 目录。
-
-### 预览生产构建
-
-```bash
-npm run preview
-```
-
-## 📁 项目结构
-
-```
-network-future-demo/
-├── public/              # 静态资源
-├── src/
-│   ├── components/      # React 组件
-│   │   └── Card.tsx   # 项目卡片组件
-│   ├── App.tsx         # 主应用组件
-│   ├── main.tsx        # 应用入口
-│   └── index.css       # 全局样式
-├── index.html          # HTML 模板
-├── package.json        # 项目配置
-├── tsconfig.json      # TypeScript 配置
-├── vite.config.ts     # Vite 配置
-└── README.md          # 项目说明
-```
-
-## 🎨 设计特点
-
-- **深色主题** - 采用 `#050505` 作为主背景色，护眼舒适
-- **霓虹配色** - 使用 `#a7f069` 作为主强调色
-- **动效优化** - 支持系统级减少动画设置
-- **视觉层次** - 通过半透明和模糊效果营造深度感
-
-## 🔧 开发命令
-
-```bash
-# 启动开发服务器（监听所有接口，端口 3000）
-npm run dev
-
-# 类型检查
-npm run lint
-
-# 构建生产版本
-npm run build
-
-# 预览生产构建
-npm run preview
-```
-
-## 📄 许可证
-
-MIT License
-
-## 🤝 贡献
-
-欢迎提交 Issue 和 Pull Request！
-
-## 👨‍💻 作者
-
-Alex - Network & AI Code Specialist
+</div>
 
 ---
 
-<div align="center">
-  <p>© 2026 Demo. Public showcase data only.</p>
-</div>
+## 📋 目录 / Table of Contents
+
+- [项目说明](#-项目说明--overview)
+- [展示内容](#-展示内容--showcase)
+- [技术栈](#-技术栈--tech-stack)
+- [快速开始](#-快速开始--quick-start)
+- [项目结构](#-项目结构--project-structure)
+- [设计方向](#-设计方向--design-direction)
+
+---
+
+## 🎯 项目说明 / Overview
+
+这个仓库是一个**对外展示型作品集 Demo**，重点不是后台业务，而是通过精简、可公开的数据模型，展示以下方向：
+
+- 网络架构设计
+- 虚拟化与平台建设
+- 零信任与身份访问
+- 监控、AIOps 与自动化
+- 服务运维与交付能力
+
+仓库内容已经做过公开化处理，适合直接部署为演示站点或作为前端作品集模板继续演进。
+
+---
+
+## ✨ 展示内容 / Showcase
+
+| 领域 | 说明 | Domain | Summary |
+|------|------|--------|---------|
+| Open Network Architecture | 多区域网络、弹性路由、可观测性 | Network | Multi-region design and observability |
+| Virtualization Patterns | 集群迁移、VDI 调优、基础设施基线 | Virtualization | Cluster and endpoint modernization |
+| Zero-Trust Foundations | 身份感知访问、设备信任、生命周期自动化 | Security | Access control and device trust |
+| Monitoring & AIOps | 告警流水线、监控仪表板、AI 事件分析 | Monitoring | Alerts, dashboards and AI ops |
+| Infrastructure Automation | 环境交付、声明式流程、平台复用 | Automation | Declarative provisioning and workflows |
+| Service Operations | 工单减少、运行手册、平台支持案例 | Operations | Runbooks and service improvement |
+
+---
+
+## 🛠 技术栈 / Tech Stack
+
+- **Frontend**: React 19 + TypeScript
+- **Build**: Vite 6
+- **Styling**: Tailwind CSS 4
+- **Icons**: Lucide React
+
+适合用于：
+
+- 个人技术作品集
+- 网络 / 运维 / 平台工程展示页
+- 演示型 Landing Page 或案例站
+
+---
+
+## 🚀 快速开始 / Quick Start
+
+### 1. 安装依赖 / Install
+
+```bash
+npm install
+```
+
+### 2. 启动开发环境 / Start Dev Server
+
+```bash
+npm run dev
+```
+
+默认地址：
+
+- `http://127.0.0.1:3000`
+
+### 3. 构建生产版本 / Build
+
+```bash
+npm run build
+```
+
+### 4. 本地预览 / Preview
+
+```bash
+npm run preview
+```
+
+### 5. 类型检查 / Type Check
+
+```bash
+npm run lint
+```
+
+---
+
+## 📂 项目结构 / Project Structure
+
+```text
+network-future-demo/
+├── src/
+│   ├── App.tsx              # 主页面 / Main page
+│   ├── index.css            # 全局样式 / Global styles
+│   ├── main.tsx             # 应用入口 / Entry point
+│   └── components/
+│       └── Card.tsx         # 卡片组件 / Reusable showcase card
+├── index.html               # HTML 模板 / HTML shell
+├── metadata.json            # 项目元数据 / Project metadata
+├── package.json             # 脚本与依赖 / Scripts and dependencies
+└── vite.config.ts           # Vite 配置 / Vite config
+```
+
+---
+
+## 🎨 设计方向 / Design Direction
+
+- 深色背景 + 高对比强调色
+- 偏未来感的网络与 AI 视觉语义
+- 轻量、静态、无后台依赖
+- 支持桌面和移动端浏览
+
+如果你只是想快速部署一个公开演示页，这个仓库可以直接作为起点。
